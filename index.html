@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 및 소셜 공유 메타 태그 -->
+    <meta name="description" content="이노라이트(INNOLIGHT) - 휴머노이드 로봇의 정밀 제어를 위한 로봇 센서 기술의 혁신">
+    <meta property="og:title" content="이노라이트 (INNOLIGHT) - Physical AI & Robotics">
+    <meta property="og:description" content="휴머노이드 및 협동로봇을 위한 MEMS Strain Gauge 6축 센서 및 및 센서, 감속기/모터, 제어기가 통합된 초소형스마트 액추에이터">
+    
+    <title>이노라이트 (INNOLIGHT) - Physical AI & Robotics</title>
+<title>이노라이트 (INNOLIGHT) - Physical AI & Robotics</title>
+<link rel="icon" href="./images/favicon.png" type="image/png">
+    <style>
+        /* --- 기본 설정 --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+            --accent: #3b82f6; 
+            --glass-bg: rgba(20, 20, 20, 0.7);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* 다국어 제어용 클래스 */
+        .lang-en { display: none; } /* 기본은 한국어, 영어는 숨김 */
+
+        /* --- 헤더 --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            pointer-events: none;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            pointer-events: auto;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .header-btns {
+            display: flex;
+            gap: 10px;
+            pointer-events: auto;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.3s;
+            cursor: pointer;
+            color: #fff;
+        }
+        
+        .nav-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+        /* --- 히어로 섹션 --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 80px;
+        }
+
+        .spline-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .text-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 600px;
+            pointer-events: auto;
+        }
+
+        h1 { font-size: 2.5rem; line-height: 1.3; margin-bottom: 15px; word-break: keep-all; }
+        h1 span { display: block; font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;}
+
+        .description { font-size: 1rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 30px; word-break: keep-all; }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .cta-button:hover { background-color: #2563eb; transform: translateY(-2px); }
+
+        /* --- 기술 소개 섹션 --- */
+        .features {
+            padding: 100px 20px;
+            background-color: #0f0f0f;
+            display: flex;
+            justify-content: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #333;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .feature-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1); }
+        
+        .feature-icon { 
+            width: 100%;
+            height: 200px; 
+            margin-bottom: 25px; 
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover .feature-icon img {
+            transform: scale(1.08); 
+        }
+
+        .feature-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 15px; }
+        .feature-desc { color: var(--text-sub); line-height: 1.6; font-size: 0.95rem; word-break: keep-all; }
+
+        /* --- 푸터 --- */
+        footer {
+            background-color: #050505;
+            padding: 60px 20px;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .footer-logo { font-weight: bold; color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .info-item label { display: block; font-size: 0.8rem; margin-bottom: 4px; color: #444; }
+        .info-item span { display: block; color: #aaa; }
+        .copyright { margin-top: 40px; text-align: center; font-size: 0.8rem; color: #444; }
+
+        /* --- JS 애니메이션 클래스 --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- 모바일 최적화 --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .logo { font-size: 1.3rem; }
+            .nav-btn { padding: 8px 15px; font-size: 0.8rem; }
+            
+            .hero { padding-bottom: 40px; }
+            .text-box { margin: 0 10px; padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+            h1 span { font-size: 0.9rem; margin-bottom: 8px; }
+            .description { font-size: 0.9rem; margin-bottom: 20px; }
+            
+            .features { padding: 60px 20px; }
+            .feature-card { padding: 25px 20px; }
+            .feature-icon { height: 180px; } 
+            
+            .info-grid { grid-template-columns: 1fr; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header>
+        <div class="logo">INNO<span>LIGHT</span></div>
+        <div class="header-btns">
+            <button class="nav-btn" id="lang-toggle">ENG</button>
+            <a href="mailto:admin@innolightx.com" class="nav-btn">Contact</a>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="spline-container">
+            <iframe src='https://my.spline.design/nexbotrobotcharacterconcept-KUqXrp4d4CbMwAYLqXWtA9Pq/' loading="lazy" title="Interactive 3D Robot Concept"></iframe>
+        </div>
+
+        <div class="hero-content">
+            <div class="text-box reveal">
+                <h1>
+                    <span>Pioneering Physical AI</span>
+                    <div class="lang-ko">휴머노이드 로봇의 정밀 제어를 위한<br>로봇 센서 기술의 혁신</div>
+                    <div class="lang-en">Innovative Robot Sensor Technology<br>for Precision Control</div>
+                </h1>
+                <p class="description lang-ko">
+                    이노라이트(Innolight)는 휴머노이드 및 협동로봇의 덱스터러스 핸즈(Dexterous Hands)를 위한 
+                    <strong>MEMS Strain Gauge 기반 6축 힘/토크 센서</strong>와 <strong>스마트 액추에이터</strong>를 개발합니다.<br><br>
+                    Physical AI의 감각을 깨우는 초정밀 제어 솔루션을 개발합니다.
+                </p>
+                <p class="description lang-en">
+                    Innolight develops highly advanced <strong>MEMS strain gauge-based 6-axis force/torque sensors</strong> and <strong>smart actuators</strong> designed for the dexterous hands of humanoid and collaborative robots.<br><br>
+                    Discover the ultra-precision control solutions that awaken the tactile senses of Physical AI.
+                </p>
+                <a href="#footer-info" class="cta-button lang-ko">회사 정보 보기</a>
+                <a href="#footer-info" class="cta-button lang-en">View Company Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 주요 기술 섹션 -->
+    <section class="features">
+        <div class="grid-container">
+            <!-- 1. MEMS 센서 -->
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <!--img src="./images/mems.jpg" alt="MEMS Sensor"-->
+                    <img src="./images/6axis.jpg" alt="6 Axis F/T Sensor">
+                </div>
+                <h3 class="feature-title lang-ko">MEMS Strain Gauge 6축 센서</h3>
+                <h3 class="feature-title lang-en">MEMS Strain Gauge 6-Axis Sensors</h3>
+                <p class="feature-desc lang-ko">
+                    초소형 정밀 공정(MEMS: Micro-Electro-Mechanical Systems) 기술을 적용하여, 로봇의 손끝과 관절에서 발생하는 미세한 힘(Force)과 토크(Torque)를 6축 방향으로 정밀하게 감지합니다.
+                </p>
+                <p class="feature-desc lang-en">
+                    Leveraging micro-electro-mechanical systems (MEMS) technology, our sensors accurately detect minute forces and torques at the fingertips and joints of robots across 6 distinct axes.
+                </p>
+            </div>
+            
+            <!-- 2. 스마트 액추에이터 -->
+            <div class="feature-card reveal" style="transition-delay: 0.1s;">
+                <div class="feature-icon">
+                    <img src="./images/smartactuator.jpg" alt="Smart Transducer/Actuator">
+                </div>
+                <h3 class="feature-title lang-ko">스마트 액추에이터</h3>
+                <h3 class="feature-title lang-en">Smart Actuators</h3>
+                <p class="feature-desc lang-ko">
+                    단순한 구동 부품을 넘어 센서와 제어기가 통합된 스마트 액추에이터는 휴머노이드 로봇의 부드럽고 유연한 움직임을 완벽하게 구현합니다.
+                </p>
+                <p class="feature-desc lang-en">
+                    Moving beyond simple motor functions, our smart actuators seamlessly integrate advanced sensors and controllers to deliver exceptionally smooth and precise movements for humanoid robots.
+                </p>
+            </div>
+            
+            <!-- 3. 휴머노이드 & 협동로봇 -->
+            <div class="feature-card reveal" style="transition-delay: 0.2s;">
+                <div class="feature-icon">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Humanoid & Collaborative Robots">
+                </div>
+                <h3 class="feature-title lang-ko">휴머노이드 & 협동로봇</h3>
+                <h3 class="feature-title lang-en">Humanoid & Collaborative Robots</h3>
+                <p class="feature-desc lang-ko">
+                    사람과 함께 작업하거나 복잡한 환경에서 활동하는 로봇에게 필수적인 고차원적 '촉각'과 '힘 제어' 능력을 부여하는 핵심 솔루션입니다.
+                </p>
+                <p class="feature-desc lang-en">
+                    Delivering the essential tactile feedback and dynamic force control capabilities required for robots to safely collaborate with humans and navigate complex, unpredictable environments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 (회사 정보) -->
+    <footer id="footer-info">
+        <div class="footer-content reveal">
+            <div class="footer-logo">이노라이트 (Innolight)</div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <label class="lang-ko">대표자</label>
+                    <label class="lang-en">CEO</label>
+                    <span class="lang-ko">한지훈</span>
+                    <span class="lang-en">Jihoon Han</span>
+                </div>
+                <div class="info-item">
+                    <label class="lang-ko">연락처</label>
+                    <label class="lang-en">Contact</label>
+                    <span>admin@innolightx.com</span>
+                </div>
+                <div class="info-item">
+                    <label class="lang-ko">웹사이트</label>
+                    <label class="lang-en">Website</label>
+                    <span>www.innolightx.com</span>
+                </div>
+                <div class="info-item">
+                    <label class="lang-ko">사업자등록번호</label>
+                    <label class="lang-en">Business Reg. No.</label>
+                    <span>131-87-03578</span>
+                </div>
+            </div>
+
+            <div class="info-item" style="margin-top: 10px;">
+                <label class="lang-ko">사업장 소재지 (본사)</label>
+                <label class="lang-en">Headquarters</label>
+                <span class="lang-ko">충청남도 천안시 서북구 불당36길 63 충남지식산업센터, 304-23호</span>
+                <span class="lang-en">#304-23, Chungnam Knowledge Industry Center, 63, Buldang 36-gil, Seobuk-gu, Cheonan-si, Chungcheongnam-do, Republic of Korea</span>
+                
+                <label class="lang-ko" style="margin-top:15px;">사업장 소재지 (연구소)</label>
+                <label class="lang-en" style="margin-top:15px;">R&D Center</label>
+                <!-- 기존 '화성시 동탄구' 표기는 행정구역상 존재하지 않아 '화성시 동탄영천로'로 올바르게 교정 반영 -->
+                <span class="lang-ko">경기도 화성시 동탄영천로 150 현대 실리콘앨리 C동 1014호</span>
+                <span class="lang-en">#C-1014, Hyundai Silicon Alley, 150, Dongtanyeongcheon-ro, Hwaseong-si, Gyeonggi-do, Republic of Korea</span>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Innolight. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 자바스크립트 기능 -->
+    <script>
+        // 1. 다국어 지원 (KOR / ENG 토글)
+        const langToggleBtn = document.getElementById('lang-toggle');
+        let currentLang = 'ko'; 
+
+        langToggleBtn.addEventListener('click', () => {
+            const koElements = document.querySelectorAll('.lang-ko');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            if (currentLang === 'ko') {
+                koElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                langToggleBtn.innerText = 'KOR';
+                currentLang = 'en';
+                document.documentElement.lang = 'en';
+            } else {
+                koElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                langToggleBtn.innerText = 'ENG';
+                currentLang = 'ko';
+                document.documentElement.lang = 'ko';
+            }
+        });
+
+        // 2. 스크롤 애니메이션
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 }); 
+
+        reveals.forEach(reveal => observer.observe(reveal));
+    </script>
+</body>
+</html>
